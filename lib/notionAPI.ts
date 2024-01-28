@@ -55,10 +55,16 @@ export const getSinglePost = async (slug) => {
   const metadata = getPageMetaData(page);
   const mdBlocks = await n2m.pageToMarkdown(page.id);
   const mdString = n2m.toMarkdownString(mdBlocks);
-  console.log(mdString.parent);
 
   return {
     metadata,
     markdown: mdString.parent,
   };
+};
+
+// TOPページ用記事の取得(4つ)
+export const getPostsForTopPage = async (pageSize: number) => {
+  const allPosts = await getAllPosts();
+  const fourPosts = allPosts.slice(0, pageSize);
+  return fourPosts;
 };
