@@ -1,6 +1,7 @@
 import { GetStaticProps } from "next";
 import SinglePost from "@/components/Post/SinglePost";
-import { getAllPosts, getPostsForTopPage } from "@/lib/notionAPI";
+import { getPostsForTopPage } from "@/lib/notionAPI";
+import Link from "next/link";
 
 export const getStaticProps: GetStaticProps = async () => {
   const fourPosts = await getPostsForTopPage(4);
@@ -25,8 +26,12 @@ export default function Home({ fourPosts }) {
             date={post.date}
             tags={post.tags}
             slug={post.slug}
+            isPaginationPage={true}
           />
         ))}
+        <Link href="/posts/page/1" className="mb-6 lg:w-1/2 mx-auto px-5 block text-right">
+          ...もっと見る
+        </Link>
       </main>
     </div>
   );
