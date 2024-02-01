@@ -23,8 +23,13 @@ const SinglePost = (props: Props) => {
               <Link href={`/posts/${slug}`}>{title}</Link>
             </h2>
             <div className="text-gray-400 mr-2">{date}</div>
-            {tags.map((tag) => (
-              <span className="text-white bg-gray-500 rounded-xl px-2 pb-1 font-medium mr-2">{tag}</span>
+            {tags.map((tag: string, index: number) => (
+              <span
+                className="text-white bg-gray-500 rounded-xl px-2 pb-1 font-medium mr-2"
+                key={index}
+              >
+                {tag}
+              </span>
             ))}
           </div>
           <p className="text-gray-100">{description}</p>
@@ -37,8 +42,10 @@ const SinglePost = (props: Props) => {
               <Link href={`/posts/${slug}`}>{title}</Link>
             </h2>
             <div className="text-gray-400">{date}</div>
-            {tags.map((tag) => (
-              <span className="text-white bg-gray-500 rounded-xl px-2 pb-1 font-medium">{tag}</span>
+            {tags.map((tag: string, index: number) => (
+              <span className="text-white bg-gray-500 rounded-xl px-2 pb-1 font-medium" key={index}>
+                {tag}
+              </span>
             ))}
           </div>
           <p className="text-gray-100">{description}</p>
