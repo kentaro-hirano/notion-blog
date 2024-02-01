@@ -7,7 +7,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const numberOfPage = await getNumberOfPages();
 
   let params = [];
-  for (let i = 1; i < numberOfPage; i++) {
+  for (let i = 1; i <= numberOfPage; i++) {
     params.push({ params: { page: i.toString() } });
   }
 
@@ -51,7 +51,7 @@ const BlogPageList = ({ numberOfPage, postsByPage }) => {
             </div>
           ))}
         </section>
-        <Pagination numberOfPage={numberOfPage} />
+        <Pagination numberOfPage={numberOfPage} tag={""} />
       </main>
     </div>
   );

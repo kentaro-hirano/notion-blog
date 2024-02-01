@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 export default function Home({ fourPosts }) {
   return (
-    <div className="container h-full w-full mx-auto">
+    <div className="container h-full w-full lg:w-1/2 mx-auto">
       <main className="container w-full mt-16">
         <h1 className="text-5xl font-medium text-center mb-16">Notion Blog🚀</h1>
         {fourPosts.map((post) => (
@@ -31,7 +31,7 @@ export default function Home({ fourPosts }) {
             />
           </div>
         ))}
-        <Link href="/posts/page/1" className="mb-6 lg:w-1/2 mx-auto px-5 block text-right">
+        <Link href="/posts/page/1" className="mb-6 mx-auto px-5 block text-right">
           ...もっと見る
         </Link>
       </main>
