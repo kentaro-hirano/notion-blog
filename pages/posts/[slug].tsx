@@ -1,9 +1,9 @@
-import { getAllPosts, getSinglePost } from "@/lib/notionAPI";
 import Link from "next/link";
 import React from "react";
 import Markdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { getAllPosts, getSinglePost } from "@/lib/notionAPI";
 
 export const getStaticPaths = async () => {
   const allPosts = await getAllPosts();
@@ -38,7 +38,7 @@ const Post = ({ post }) => {
           className="text-white bg-sky-900 rounded-xl font-medium mt-2 px-2 inline-block mr-2"
           key={index}
         >
-          {tag}
+          <Link href={`/posts/tag/${tag}/page/1`}>{tag}</Link>
         </p>
       ))}
       <div className="mt-10 font-medium">
