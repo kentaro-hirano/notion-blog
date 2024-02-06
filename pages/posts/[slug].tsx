@@ -43,27 +43,25 @@ const Post = ({ post }) => {
       ))}
       <div className="mt-10 font-medium">
         <Markdown
-          children={post.markdown}
           components={{
             code(props) {
-              const { children, className, node, ...rest } = props;
+              const { children, className, node } = props;
               const match = /language-(\w+)/.exec(className || "");
               return match ? (
                 <SyntaxHighlighter
-                  {...rest}
                   PreTag="div"
                   children={String(children).replace(/\n$/, "")}
                   language={match[1]}
                   style={vscDarkPlus}
                 />
               ) : (
-                <code {...rest} className={className}>
-                  {children}
-                </code>
+                <code>{children}</code>
               );
             },
           }}
-        ></Markdown>
+        >
+          {post.markdown}
+        </Markdown>
         <Link href="/">
           <span className="pb-20 block text-sky-900">◀ ホームに戻る</span>
         </Link>
