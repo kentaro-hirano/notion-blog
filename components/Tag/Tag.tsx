@@ -8,8 +8,6 @@ type Props = {
 const Tag = (props: Props) => {
   const { tags } = props;
 
-  console.log(tags);
-
   return (
     <div className="mx-4">
       <section className="lg:w-5/6 mb-8 mx-auto bg-orange-200 rounded-md p-5 shadow-2xl hover:shadow-none hover:translate-y-1 duration-300 transition-all">

@@ -26,8 +26,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const allTags = await getAllTags();
 
-  console.log(allTags);
-
   return {
     props: {
       postsByPage,
