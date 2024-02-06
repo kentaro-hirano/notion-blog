@@ -48,12 +48,9 @@ const Post = ({ post }) => {
               const { children, className, node } = props;
               const match = /language-(\w+)/.exec(className || "");
               return match ? (
-                <SyntaxHighlighter
-                  PreTag="div"
-                  children={String(children).replace(/\n$/, "")}
-                  language={match[1]}
-                  style={vscDarkPlus}
-                />
+                <SyntaxHighlighter PreTag="div" language={match[1]} style={vscDarkPlus}>
+                  {String(children).replace(/\n$/, "")}
+                </SyntaxHighlighter>
               ) : (
                 <code>{children}</code>
               );
