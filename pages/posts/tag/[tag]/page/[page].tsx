@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       currentTag,
       allTags,
     },
-    revalidate: 60 * 60 * 6,
+    revalidate: 10,
   };
 };
 
